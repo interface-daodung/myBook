@@ -3,94 +3,484 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đại Hồng Thủy - Tiểu Thuyết Tận Thế</title>
+  <title>Kỷ Nguyên Đại Hồng Thủy - Khi Cả Thế Giới Chìm Trong Biển Nước!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(120deg, #232526, #414345);
-      color: #fff;
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      font-family: 'Roboto', Arial, sans-serif;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
-    .container {
-      background: rgba(30, 30, 40, 0.85);
+    h1, h5 {
+      font-weight: 700;
+    }
+    #book-cover {
+      box-shadow: 0 4px 24px 0 rgba(0, 123, 255, 0.15);
+      border: 4px solid #fff;
+      background: #fff;
+    }
+    .story-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10);
+      padding: 2rem 2rem 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+    #chapter-list .list-group-item {
+      background: linear-gradient(90deg, #f8fafc 60%, #e0eafc 100%);
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #0d6efd;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px 0 rgba(13,110,253,0.05);
+    }
+    #chapter-list .list-group-item:hover, #chapter-list .list-group-item.active {
+      background: linear-gradient(90deg, #0d6efd 60%, #6ea8fe 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px 0 rgba(13,110,253,0.15);
+      cursor: pointer;
+    }
+    #chapter-content {
+      background: #fff;
       border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      padding: 40px 32px;
-      max-width: 420px;
-      text-align: center;
+      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10);
+      min-height: 350px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #222;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid #e0eafc;
+      animation: fadeIn 0.5s;
     }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: none; }
+    }
+    .chapter-title {
+      color: #0d6efd;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
       letter-spacing: 1px;
     }
-    .subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 24px;
-      color: #b0b3b8;
-    }
-    .cover {
-      width: 180px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    }
-    .desc {
-      font-size: 1rem;
-      margin-bottom: 32px;
-      color: #e0e0e0;
-    }
-    .cta-btn {
-      background: #00c6ff;
-      background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      padding: 14px 36px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      text-decoration: none;
-      display: inline-block;
-    }
-    .cta-btn:hover {
-      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
-    }
-    @media (max-width: 500px) {
-      .container {
-        padding: 24px 8px;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      .cover {
-        width: 120px;
-        height: 170px;
-      }
+    @media (max-width: 768px) {
+      .story-card, #chapter-content { padding: 1rem; }
+      #book-cover { max-height: 180px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img class="cover" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Bìa sách Đại Hồng Thủy">
-    <h1>Đại Hồng Thủy</h1>
-    <div class="subtitle">Tiểu thuyết tận thế - Hành trình sống sót giữa biển nước</div>
-    <div class="desc">
-      Khi thế giới chìm trong biển nước vô tận, con người phải đối mặt với những thử thách sinh tồn khắc nghiệt nhất. <br><br>
-      "Đại Hồng Thủy" là câu chuyện về lòng dũng cảm, tình người và hy vọng le lói giữa tận cùng tuyệt vọng. Bạn đã sẵn sàng khám phá hành trình này?
+  <div class="container py-4">
+    <div class="row mb-3">
+      <div class="col-md-3 text-center">
+        <img src="book cover.png" alt="Book Cover" class="img-fluid rounded shadow" style="max-height: 320px; object-fit: cover;" id="book-cover">
+      </div>
+      <div class="col-md-9">
+        <div class="story-card">
+          <h1 class="mb-3 text-primary">Kỷ Nguyên Đại Hồng Thủy - Khi Cả Thế Giới Chìm Trong Biển Nước!</h1>
+          <div class="mb-4">
+            <h5>Mô tả truyện</h5>
+            <p id="story-desc">
+              Khi cơn đại hồng thủy ập đến, cả thế giới chìm trong biển nước. Những con người còn sống sót phải chiến đấu để sinh tồn, khám phá những bí ẩn dưới lòng đại dương mới và đối mặt với những hiểm nguy chưa từng có...
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <a class="cta-btn" href="chapter1.html">Đọc Chương 1</a>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="story-card">
+          <h5>Danh sách chương</h5>
+          <ul class="list-group" id="chapter-list">
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div id="chapter-content" class="border rounded p-3 bg-light" style="min-height: 300px;">
+          <em>Chọn chương để đọc nội dung...</em>
+        </div>
+      </div>
+    </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dữ liệu chương truyện lấy từ file data.txt, đã tách sẵn
+    const chapters = [
+      {title: "Chương 1: Mười Ngày Định Mệnh", content: `Khí lạnh ẩm ướt rít qua kẽ răng, cuốn theo mùi tanh nồng của rong rêu mục nát và mặn chát của biển chết. Đào Dũng giật mình bừng tỉnh, lồng ngực như bị ngàn cân đá đè nén, đau buốt đến tận xương tủy. Mắt anh mở trừng, vành mắt đỏ ngầu, cố gắng định hình cảnh vật xung quanh. Trước mắt anh không phải là nền trời xám xịt bị che phủ bởi những đám mây độc, không phải những khối bê tông đổ nát hoang tàn nhô lên giữa mênh mông nước, cũng không phải cái xác mục rữa của con cá mập biến dị trôi dạt vào bè gỗ tự chế của anh.
+
+Anh đang nằm trên chiếc giường quen thuộc, ga trải giường cotton mềm mại, chăn bông nhẹ tênh vương vấn mùi nước xả vải dịu nhẹ. Ánh nắng ban mai xuyên qua tấm rèm cửa sổ bằng vải voan mỏng, vẽ nên những vệt sáng vàng trên sàn gỗ. Tiếng chim hót líu lo ngoài cửa sổ, tiếng xe cộ vù vù dưới phố vọng lên từ xa xăm. Mọi thứ… quá đỗi bình thường.
+
+Đào Dũng ngồi bật dậy, hơi thở dồn dập. Anh đưa tay lên chạm vào gương mặt mình. Làn da non mịn, không một vết sẹo, không một vết chai sần thô ráp vì lao động nặng nhọc hay đối mặt với hiểm nguy. Anh vội vã chạy đến tấm gương lớn trong phòng tắm. Trong gương là một thanh niên hai mươi lăm tuổi, gương mặt còn phảng phất nét thư sinh, đôi mắt đen láy chưa nhuốm màu tang thương của sự tuyệt vọng. Đây là anh, Đào Dũng của mười năm về trước, cái thời điểm mà anh đã nghĩ rằng cuộc đời mình chỉ là những ngày tháng an nhàn trôi đi trong bình lặng.
+
+Một cơn rùng mình lạnh lẽo chạy dọc sống lưng, không phải vì cái lạnh của nước biển mà là cái lạnh của sự thật tàn khốc đang ập đến. Anh đưa tay túm chặt lấy mái tóc, cố gắng xua đi những mảnh ký ức kinh hoàng vẫn còn vương vấn như sương khói. Trọng sinh. Anh đã trọng sinh.
+
+"Mười năm… mười năm ác mộng…" Giọng anh khản đặc, như thể đã lâu lắm rồi không cất lời.
+
+Ký ức về kiếp trước ào ạt ùa về, rõ nét đến từng chi tiết nhỏ nhất. Cái ngày định mệnh ấy, khi cơn mưa không ngừng trút xuống, không phải những cơn mưa rào thông thường, mà là những trận cuồng phong mang theo dòng nước lũ hủy diệt. Lúc đầu, mọi người chỉ nghĩ là thiên tai lớn, nhưng rồi nước dâng lên không ngừng nghỉ, nhấn chìm từng thành phố, từng ngọn núi, biến cả thế giới thành một đại dương bao la. Nhân loại rơi vào cảnh "biển người mênh mông", trôi dạt trên những con thuyền tự chế, những bè gỗ tạm bợ, giành giật từng mảnh lương thực, từng giọt nước ngọt. Đó là khởi đầu của tận thế.
+
+Nhưng đó chưa phải là điều tồi tệ nhất. Khi sông băng tan chảy không kiểm soát, một loại virus cổ đại bị phong ấn hàng triệu năm dưới lớp băng vĩnh cửu đã được giải phóng. Virus này, có lẽ là một phần của hệ sinh thái nguyên thủy của Trái Đất, mang theo khả năng biến đổi DNA của sinh vật. Ban đầu, nó chỉ ảnh hưởng đến sinh vật biển. Những loài cá nhỏ biến thành quái vật khổng lồ với hàm răng sắc nhọn như dao cạo, mực ống phát triển xúc tu dài cả cây số, sứa điện có thể phóng ra luồng điện đủ để làm cháy cả một con tàu. Chúng được gọi là F0 – những sinh vật biển bị biến dị cấp độ đầu tiên, mang trong mình nguồn sức mạnh khủng khiếp.
+
+Đào Dũng nhớ như in hình ảnh con cá voi xanh khổng lồ, vốn hiền lành, bỗng chốc mọc ra những chiếc vây nhọn hoắt như lưỡi hái, đôi mắt đỏ ngầu và khả năng phun ra những cột nước áp lực cao xuyên thủng cả vỏ tàu ngầm. Đó là F0.
+
+Và rồi, virus đó lan sang con người. Không phải ai cũng nhiễm, nhưng những người bị nhiễm có thể phát triển thành hai loại: F1 và F0. F1 là những người bị nhiễm virus từ F0, họ chỉ có thể hấp thụ được một phần nhỏ khả năng của sinh vật F0 gốc. Ví dụ, nếu bạn nhiễm virus từ một con cá điện F0, bạn có thể có khả năng phóng điện yếu ớt. Nếu nhiễm từ một con cá mập F0, bạn có thể có sức mạnh thể chất vượt trội hoặc khả năng chữa lành nhanh hơn. Đó là sự "tiến hóa" mà nhiều người khao khát, một tia hy vọng mong manh giữa biển cả chết chóc. Nhưng Đào Dũng biết, F1 thường chỉ là những kẻ mạnh hơn một chút, vẫn dễ dàng bị nghiền nát dưới móng vuốt của F0 nguyên bản.
+
+Còn F0? Đó là những trường hợp cực kỳ hiếm hoi. Họ không chỉ bị nhiễm virus mà còn có khả năng "đồng hóa" nó, phát triển một hoặc nhiều khả năng cường hóa, đôi khi còn vượt trội hơn cả sinh vật gốc. Họ là những người thực sự mạnh mẽ, những "người tiến hóa" chân chính, có thể sống sót và thậm chí là thống trị trong thế giới mới.
+
+Đào Dũng của kiếp trước, đã không may mắn như vậy. Anh đã sống lay lắt, chật vật từng ngày, chứng kiến những người thân yêu lần lượt ra đi. Cha mẹ anh bị sóng thần cuốn trôi. Cô em gái nhỏ bị một con cá mập biến dị nuốt chửng ngay trước mắt anh. Nỗi đau xé lòng, sự bất lực đã biến anh thành một cái bóng vật vờ, chỉ còn biết bám víu vào chút hy vọng mong manh về một ngày mai không có bão tố. Nhưng ngày mai ấy chưa bao giờ đến. Anh đã chết vì kiệt sức và đói khát trên một chiếc bè giữa đại dương vô tận.
+
+"Không! Không thể nào lặp lại!" Đào Dũng gầm lên, nắm chặt tay đến mức móng tay cắm sâu vào da thịt. Máu rỉ ra, nhưng anh không cảm thấy đau. Nỗi sợ hãi và quyết tâm đã át đi tất cả.
+
+"Trời cho ta cơ hội thứ hai, ta nhất định phải nắm lấy!" Lời thề vang vọng trong căn phòng yên tĩnh, mang theo âm hưởng của một kẻ đã nhìn thấy địa ngục trở về.
+
+Anh biết rõ tận thế sẽ đến sau mười ngày nữa. Chính xác là vào ngày 27 tháng 8, cơn mưa sẽ bắt đầu, và sau đó là những trận cuồng phong, sóng thần liên tiếp. Trong khoảng ba tháng, toàn bộ đất liền sẽ bị nhấn chìm. Những người may mắn sống sót sẽ phải vật lộn trên biển cả.
+
+Trong kiếp trước, khi tận thế ập đến, anh đã làm như bao người khác: cố gắng tìm một ngọn núi cao để trốn tránh, hy vọng nước sẽ không dâng tới. Nhưng anh đã lầm. Không có nơi nào an toàn trên đất liền. Nước đã bao phủ tất cả. Những người lên núi chỉ kéo dài sự sống thêm một chút, rồi cũng chịu chung số phận kiệt quệ, chết đói hoặc bị những sinh vật biến dị bay lượn trên không trung săn đuổi.
+
+"Cái dại nhất của đời người là lặp lại sai lầm. 'Một lần ngã, một lần khôn', câu nói này quả không sai." Đào Dũng đứng dậy, bước đến bên cửa sổ, nhìn ra khung cảnh phố xá tấp nập bên dưới. Mọi người vẫn đang sống trong sự bình yên giả tạo, không hề hay biết rằng lưỡi hái tử thần đang lơ lửng trên đầu. Họ sẽ không tin anh, dù anh có cố gắng cảnh báo đến đâu. Đó là bản năng tự vệ của con người, không tin vào những điều phi lý, nhất là khi nó quá đỗi kinh hoàng.
+
+Vậy, anh phải làm gì? Lên núi? Chắc chắn là không. Tìm lương thực tích trữ? Đó là điều cơ bản, nhưng không phải là ưu tiên hàng đầu. Điều quan trọng nhất là phải trở thành một "người tiến hóa", đủ mạnh mẽ để tồn tại và bảo vệ những người thân yêu nếu họ còn sống sót.
+
+Và để làm được điều đó, anh cần virus F0, hoặc một thứ quý giá hơn: Hải Châu.
+
+Hải Châu. Cái tên đó vang vọng trong tâm trí Đào Dũng như một bản thánh ca của hy vọng. Trong kiếp trước, anh đã nghe nói về chúng rất nhiều, nhưng chưa bao giờ đủ may mắn để tận mắt chứng kiến. Hải Châu là những viên ngọc trai khổng lồ, được tạo ra bởi những loài trai biển đột biến, chúng có khả năng hấp thụ và tinh lọc virus F0. Một khi đã hấp thụ, Hải Châu sẽ chứa đựng một hoặc nhiều năng lực cường hóa của sinh vật F0 mà nó đã hấp thụ. Ví dụ, một Hải Châu được tạo ra từ một con trai đã hấp thụ virus từ cá điện F0 sẽ mang trong mình năng lực phóng điện mạnh mẽ. Điều đáng kinh ngạc là, khi con người hấp thụ Hải Châu, họ sẽ có cơ hội cực lớn để trở thành F0, thay vì chỉ là F1 thông thường. Khả năng thành công cao hơn rất nhiều so với việc chỉ đơn thuần tiếp xúc với virus từ xác sinh vật biến dị.
+
+Và nơi nào có nhiều sinh vật biển biến dị nhất? Chắc chắn là bờ biển, nơi khởi nguồn của đại dương mênh mông và nguồn virus đầu tiên. Thay vì tìm đường lên cao, anh phải tìm đường xuống biển!
+
+Đây là một ý tưởng điên rồ, một canh bạc lớn. Nhưng Đào Dũng biết, trong tận thế, "liều mình" mới là cách duy nhất để sống sót. "Không vào hang hổ, làm sao bắt được cọp con?" Anh phải đối mặt với nguy hiểm, phải tìm kiếm cơ duyên ngay từ khi tận thế còn chưa bùng phát hoàn toàn.
+
+Anh vội vã bật máy tính, kiểm tra lại ngày tháng. Ngày 17 tháng 8. Còn đúng mười ngày. Mười ngày vàng ngọc, mười ngày quyết định số phận.
+
+"Phải chuẩn bị thật kỹ lưỡng," anh lẩm bẩm. "Tiền bạc, vũ khí, lương thực, thuốc men… nhưng quan trọng nhất là phải tìm được nơi có khả năng xuất hiện Hải Châu sớm nhất."
+
+Đào Dũng bắt đầu lướt web, tìm kiếm thông tin về các vùng biển lớn, các cảng cá, những nơi có hệ sinh thái biển phong phú gần thành phố anh đang sống. Anh cần một địa điểm chiến lược, nơi anh có thể tiếp cận được với những sinh vật biển đầu tiên bị biến dị. Miền Trung Việt Nam, với đường bờ biển dài và nhiều vùng nước sâu, có lẽ là lựa chọn tốt nhất.
+
+Kế hoạch hình thành rõ ràng trong đầu anh:
+
+Thu thập tài nguyên: Rút hết tiền tiết kiệm, mua sắm những vật dụng cần thiết: dao, súng (nếu có thể, dù rất khó ở Việt Nam), bộ đồ lặn, bình dưỡng khí, dây thừng, la bàn, bộ dụng cụ sơ cứu, lương khô, nước uống. Ưu tiên những vật phẩm bền bỉ, đa năng.
+Di chuyển: Tìm cách đến bờ biển gần nhất một cách nhanh chóng và bí mật.
+Tìm kiếm cơ duyên: Đây là bước khó nhất. Anh không biết chính xác khi nào và ở đâu những sinh vật F0 đầu tiên sẽ xuất hiện, hay Hải Châu sẽ được tạo ra. Anh chỉ có thể dựa vào kiến thức về hệ sinh thái biển và chút may mắn của mình.
+Anh lao vào công việc như một cái máy. Tiền mặt được rút ra, anh dùng nó để mua sắm trực tuyến và ghé thăm những cửa hàng chuyên dụng. Anh mua một bộ đồ lặn chuyên nghiệp, loại có thể chịu được áp lực nước sâu và giữ nhiệt tốt. Mua một con dao găm bằng thép không gỉ sắc bén, một chiếc bật lửa chống thấm nước, đèn pin công suất cao. Anh cũng tìm mua một chiếc thuyền cao su bơm hơi loại nhỏ, có thể gấp gọn và dễ dàng vận chuyển.
+
+Trong quá trình chuẩn bị, Đào Dũng cố gắng giữ thái độ bình tĩnh nhất có thể. "Người xưa có câu: 'Binh quý thần tốc'. Thời gian là vàng bạc." Anh biết rằng sự hoảng loạn sẽ chỉ dẫn đến những sai lầm chết người.
+
+Buổi chiều, anh đến gặp một người bạn cũ, Kiên, một tay chơi đồ cổ và vũ khí lậu có tiếng. Kiên là một người mê sưu tầm, và trong số những món đồ của anh ta có một vài khẩu súng ngắn và đạn dược mà Đào Dũng biết là rất hữu ích trong tận thế.
+
+"Dũng à, lâu lắm không gặp! Tự nhiên cậu lại tìm tớ có việc gì?" Kiên cười toe toét, bộ râu lởm chởm và đôi mắt tinh quái.
+
+"Tớ cần một vài thứ, Kiên à. Một vài thứ 'đặc biệt' một chút." Đào Dũng nói, ánh mắt kiên định.
+
+Kiên nheo mắt nhìn anh, rồi gật đầu. "Có lẽ tớ có thứ cậu cần. Nhưng cậu biết đấy, hàng này không rẻ đâu."
+
+"Tớ biết. Tớ có tiền."
+
+Sau một hồi thương lượng, Đào Dũng đã có trong tay một khẩu súng ngắn Glock 19 cùng với hai hộp đạn, và một con dao săn loại lớn. Cầm khẩu súng trên tay, một cảm giác lạnh lẽo nhưng đầy sức mạnh lan tỏa. Đây là thứ vũ khí cơ bản nhất để sinh tồn trong thế giới mới.
+
+"Cậu tính đi đâu mà sắm đồ ghê vậy, như thể chuẩn bị ra khơi săn cá mập vậy?" Kiên nửa đùa nửa thật.
+
+"Có thể hơn cả săn cá mập đấy, Kiên ạ." Đào Dũng mỉm cười, một nụ cười ẩn chứa quá nhiều điều mà Kiên không thể hiểu. "Cậu nên tự chuẩn bị cho mình đi. Mưa lớn sắp đến rồi."
+
+Kiên chỉ cười xòa, cho rằng Đào Dũng đang nói đùa hoặc có kế hoạch đi phượt mạo hiểm nào đó. "Thôi nào, Dũng. Mưa thì có gì lạ? Mùa này chả mưa như trút nước ấy chứ."
+
+Đào Dũng không nói thêm. Anh biết, những lời cảnh báo của anh sẽ chỉ rơi vào hư không. Mọi người đều sống trong sự an toàn giả tạo, cho đến khi thảm họa thực sự ập đến. "Ếch ngồi đáy giếng" chính là hình ảnh chân thực nhất về con người trước thềm tận thế.
+
+Trở về nhà, Đào Dũng sắp xếp lại tất cả các vật phẩm đã mua. Anh kiểm tra lại chiếc thuyền cao su, đảm bảo không có vết thủng nào. Anh đóng gói gọn gàng quần áo, lương khô, nước uống, thuốc men vào ba lô chống thấm nước. Anh cũng mang theo một chiếc điện thoại vệ tinh cũ mà anh đã mua trong kiếp trước, hy vọng nó vẫn hoạt động được trong điều kiện khắc nghiệt.
+
+Đêm đó, Đào Dũng nằm trên giường, nhìn lên trần nhà. Không một chút ngủ yên. Tâm trí anh tràn ngập những tính toán, những kịch bản có thể xảy ra. Liệu anh có thể tìm thấy Hải Châu? Liệu anh có đủ mạnh mẽ để đối mặt với những sinh vật biến dị? Liệu anh có thể thay đổi số phận của mình và những người anh yêu thương?
+
+"Kiếp trước, ta quá yếu đuối. Kiếp này, ta phải mạnh mẽ." Lời tự nhủ đó không chỉ là một mục tiêu, mà là một lời tuyên thệ bằng cả sinh mệnh.
+
+Sáng hôm sau, Đào Dũng quyết định bắt đầu hành trình sớm hơn dự định. Mười ngày là thời gian rất ngắn. Càng sớm đến bờ biển, càng có nhiều cơ hội. Anh đã chọn một cảng cá nhỏ, ít người qua lại, cách thành phố khoảng vài trăm cây số. Nơi đó có vùng nước sâu và hệ sinh thái biển đa dạng, rất có thể là nơi đầu tiên virus bùng phát và sinh vật biến dị xuất hiện.
+
+Anh gọi một chiếc taxi, nói rằng mình muốn đi du lịch bụi. Chiếc ba lô lớn cùng chiếc túi đựng thuyền cao su được đặt gọn gàng ở cốp sau. Khi chiếc xe lăn bánh, Đào Dũng nhìn lại căn nhà, khu phố quen thuộc. Mọi thứ vẫn yên bình đến đáng sợ. Mùi cà phê thơm lừng từ quán quen, tiếng trẻ con cười đùa ở công viên, tiếng rao hàng của người bán xôi. Tất cả những hình ảnh đó sẽ sớm trở thành ký ức, chìm sâu dưới đáy biển.
+
+"Tạm biệt, thế giới cũ." Anh thầm nhủ. "Chào mừng, định mệnh mới."
+
+Chiếc taxi lướt đi trên đường cao tốc, đưa anh rời xa trung tâm thành phố, tiến về phía bờ biển. Ánh nắng chói chang của buổi sớm hè trải dài trên cánh đồng lúa xanh mướt, trên những hàng cây ven đường. Cảnh vật thanh bình đến mức khó tin rằng chỉ mười ngày nữa thôi, tất cả sẽ chìm trong biển nước.
+
+Đào Dũng nhắm mắt lại. Anh không còn là Đào Dũng yếu đuối của kiếp trước. Anh là một người đã chết và sống lại, mang trong mình gánh nặng của quá khứ và hy vọng vào tương lai. Con đường phía trước đầy rẫy hiểm nguy, nhưng anh đã sẵn sàng. "Cuộc đời là một chuyến đi, và đôi khi, những con đường ít người đi lại mới dẫn đến những điều vĩ đại nhất." Lần này, anh sẽ không đi theo lối mòn. Anh sẽ tự tạo ra con đường của riêng mình, con đường dẫn đến sự sống còn và sức mạnh.
+
+Biển cả mênh mông đang chờ đợi, và trong lòng nó, những bí ẩn chết người cùng những cơ hội vàng đang chực chờ được khám phá.`},
+      {title: "Chương 2: Quái Vật Nằm Im Lặng", content: `Tiếng xe taxi khựng lại, bánh xe nghiến trên sỏi đá khô khốc. Đào Dũng mở mắt, ánh nắng chói chang từ phía biển hắt vào, khiến anh phải nheo mắt. Trước mặt anh là con đường đất đỏ dẫn thẳng xuống một cảng cá nhỏ, hoang vắng. Vài chiếc thuyền đánh cá cũ kỹ neo đậu hờ hững, lưới đánh cá phơi khô trên bãi cát, và mùi tanh nồng của cá biển quyện lẫn với mùi ẩm mục của gỗ mục rữa. Đây là cảng Vạn Lý, một điểm đến mà trong kiếp trước, anh chưa từng đặt chân tới. Nó hẻo lánh, ít người biết đến, và chính vì thế, nó trở thành nơi lý tưởng cho kế hoạch điên rồ của anh.
+
+"Anh xuống đây à? Nơi này có vẻ hoang vắng quá," tài xế taxi càu nhàu, ánh mắt dò xét.
+
+"Đúng vậy, tôi muốn tìm chút bình yên," Đào Dũng trả lời cụt lủn, ánh mắt lướt qua những ngóc ngách của cảng. Anh trả tiền xe, vác chiếc ba lô nặng trĩu lên vai, kéo theo túi đựng thuyền cao su. "Cám ơn anh."
+
+Chiếc taxi quay đầu, bỏ lại anh một mình giữa không gian yên tĩnh đến lạ lùng. Tiếng sóng vỗ rì rào vào bờ, tiếng hải âu kêu lanh lảnh, và tiếng gió biển thổi qua những rặng phi lao rì rào. Tất cả tạo nên một bản hòa tấu của sự bình yên, một sự bình yên mong manh đến đáng sợ. "Sóng lặng trước bão lớn, quả không sai. Đến cả gió cũng mang theo hơi thở của biển chết," anh thầm nghĩ.
+
+Đào Dũng đi bộ dọc theo bãi biển, tìm kiếm một nơi kín đáo để hạ trại. Anh cần một nơi có thể ẩn mình, dễ dàng quan sát biển và cũng đủ gần để kịp thời phản ứng khi có biến cố. Cuối cùng, anh tìm thấy một căn chòi nhỏ bỏ hoang, mái lợp tôn đã rỉ sét, vách gỗ mục nát, nằm khuất sau một rặng cây dừa già cỗi. Nơi đây đủ để anh nghỉ ngơi, cất giữ đồ đạc và chuẩn bị cho những ngày tới.
+
+Anh nhanh chóng dọn dẹp căn chòi, trải tấm bạt dưới nền đất ẩm ướt, sắp xếp đồ dùng một cách khoa học. Khẩu Glock 19 được đặt cẩn thận dưới lớp áo khoác, con dao găm sắc lẹm được gài vào thắt lưng. Anh kiểm tra lại bình dưỡng khí, bộ đồ lặn, và chiếc thuyền cao su. Mọi thứ đều sẵn sàng.
+
+Những ngày sau đó trôi qua trong sự chờ đợi căng thẳng. Đào Dũng dành phần lớn thời gian để quan sát biển. Anh đi dọc bờ cát, ngắm nhìn những con sóng bạc đầu vỗ vào bờ, lắng nghe tiếng gió biển. Trong tâm trí anh, mỗi làn sóng đều ẩn chứa một bí mật chết người, mỗi ngọn gió đều mang theo hơi thở của sự hủy diệt sắp tới.
+
+Thời tiết bắt đầu có những biểu hiện lạ. Ban ngày trời vẫn nắng gắt, nhưng những đám mây đen kịt thỉnh thoảng lại vần vũ trên chân trời, không báo trước. Biển cả, vốn dĩ xanh biếc, đôi lúc lại chuyển sang màu xám xịt một cách bất thường. Những cơn mưa rào bất chợt đổ xuống, không lớn, nhưng mang theo cái lạnh lẽo thấu xương, khác hẳn những cơn mưa nhiệt đới thường thấy. Những ngư dân địa phương bắt đầu phàn nàn về sự vắng vẻ của cá, về những luồng nước lạnh bất thường dưới biển sâu. "Chim trời cá nước đều cảm nhận được tai ương," Đào Dũng tự nhủ. "Chỉ có con người là mù quáng."
+
+Vào ngày thứ năm sau khi anh đến cảng Vạn Lý, tức là còn đúng năm ngày nữa cho đến ngày tận thế bùng nổ toàn diện, một sự kiện lạ đã xảy ra. Buổi sáng hôm đó, trời vẫn trong xanh, nhưng một cơn gió mạnh bất thường đã thổi tới từ phía biển, mang theo một mùi tanh tưởi, nồng nặc và khó chịu hơn bất kỳ mùi tanh nào anh từng biết. Nó không phải mùi cá chết, cũng không phải mùi rác thải. Nó là mùi của sự mục rữa, của cái chết, nhưng lại pha lẫn một chút gì đó hoang dại, nguyên thủy.
+
+Đào Dũng lập tức cảm thấy lồng ngực mình siết chặt. Anh biết, đây là dấu hiệu đầu tiên. "Phong ba bão táp sắp nổi rồi."
+
+Anh vội vã chạy ra bờ biển. Cảnh tượng trước mắt khiến anh đứng sững sờ.
+
+Dọc theo bờ cát, cách căn chòi của anh không xa, một khối thịt khổng lồ, dị thường đang nằm im lìm. Nó có màu xám xanh, xen lẫn những mảng đen sì, nhớp nháp. Bề mặt sần sùi, nhấp nhô như những ngọn đồi nhỏ, và từ những kẽ nứt sâu hoắm, một thứ chất lỏng sền sệt, màu tím sẫm đang rỉ ra, nhuộm bẩn bãi cát xung quanh. Nó to lớn đến mức chiếm trọn một khoảng bờ biển, kéo dài vài chục mét, trông như một ngọn núi thịt bị đánh bật khỏi lòng biển sâu.
+
+Đây chính là Globster.
+
+Đào Dũng cảm thấy một cơn ớn lạnh chạy dọc sống lưng, nhưng cùng lúc đó, một sự phấn khích tột độ bùng lên trong lòng anh. Trong kiếp trước, anh chỉ được nghe kể về những Globster. Chúng là những khối thịt bí ẩn, thường là một phần của những sinh vật biển khổng lồ, dị thường bị biến dị và chết đi, rồi trôi dạt vào bờ. Các nhà khoa học điên rồ trong tận thế đã gọi chúng là "những mảnh vỡ của bá chủ biển sâu".
+
+"Đây rồi… đây chính là cơ duyên," anh thì thầm, giọng khản đặc.
+
+Anh từ từ tiến lại gần khối thịt khổng lồ. Mùi tanh nồng trở nên dữ dội hơn, xộc thẳng vào mũi, khiến anh phải nín thở. Khi đến gần hơn, Đào Dũng có thể nhìn rõ hơn cấu trúc của nó. Không có xương, không có mắt, không có vây rõ ràng. Chỉ là một khối thịt vô định hình, nhưng ẩn chứa một sức sống kỳ lạ. Bề mặt của nó vẫn còn hơi co giật nhẹ, như thể một sinh vật khổng lồ đang thở dốc trước khi trút hơi thở cuối cùng. Những đường gân xanh đen nổi rõ trên bề mặt, tạo thành những họa tiết phức tạp, bí ẩn.
+
+Với kiến thức từ kiếp trước, Đào Dũng lập tức nhận ra đây là thứ gì. "Đây là một phần của một con Kraken… hoặc một loài tương tự. Một bá chủ biển sâu bị biến dị thành F0." Chỉ có những sinh vật khổng lồ, nguyên thủy nhất, sống ở đáy biển sâu, mới có thể tạo ra những khối Globster kinh hoàng đến thế khi chúng chết đi. Và điều đó có nghĩa là, trong khối thịt này, chứa đựng nguồn virus F0 tinh khiết và mạnh mẽ nhất.
+
+Anh giơ tay ra, ngón tay run rẩy chạm vào bề mặt Globster. Cảm giác lạnh lẽo, mềm nhũn, nhưng cũng đầy kinh tởm. Một luồng năng lượng kỳ lạ dường như truyền qua đầu ngón tay anh, một cảm giác tê dại, như điện giật nhẹ. Đào Dũng rụt tay lại, đôi mắt mở to. Đây chính là dấu hiệu. Virus F0 đang lan tỏa, thậm chí ngay cả khi sinh vật chủ đã chết.
+
+Một câu hỏi lớn đặt ra: Làm thế nào để hấp thụ nó?
+
+Trong kiếp trước, những người nhiễm F0 thường là do vô tình tiếp xúc với dịch tiết hoặc máu của sinh vật biến dị, hoặc hấp thụ Hải Châu. Hải Châu là vật phẩm được tinh lọc, có tỷ lệ thành công cao hơn và ít rủi ro hơn. Còn Globster? Đây là nguồn F0 nguyên bản, không qua tinh lọc. Nguy cơ biến thành quái vật không có lý trí, hoặc đơn giản là chết vì sốc virus, là rất cao.
+
+"Mèo hoang còn dám bắt chuột, lẽ nào ta lại không dám liều một phen?" Đào Dũng tự nhủ. Anh đã sống lại, không phải để chết một cách hèn nhát nữa. Anh muốn trở thành F0, không phải F1 yếu ớt. Đây là cơ hội duy nhất, một cơ hội trời cho.
+
+Anh lấy con dao găm ra khỏi thắt lưng. Lưỡi dao sáng loáng dưới ánh nắng mặt trời. Hít một hơi thật sâu, anh dùng hết sức bình sinh, cắm phập lưỡi dao vào khối thịt. Dao đi vào dễ dàng hơn anh nghĩ, như thể khối thịt không có xương, chỉ toàn là cơ bắp và mỡ. Một dòng chất lỏng màu tím sẫm, đặc quánh hơn cả máu, trào ra từ vết cắt. Mùi tanh nồng lập tức trở nên kinh khủng hơn, như hàng ngàn xác chết đang mục rữa cùng lúc.
+
+Đào Dũng cẩn thận cắt một mảnh thịt nhỏ, bằng đầu ngón tay cái. Nó mềm mại, nhớp nháp, và có một màu sắc kỳ lạ, như một viên thạch đen pha tím. Anh đưa mảnh thịt lại gần mũi, hít một hơi. Mùi tanh làm dạ dày anh co thắt, nhưng anh cố gắng trấn tĩnh.
+
+"Đây là hy vọng… đây là tương lai."
+
+Anh nhìn xuống mảnh thịt trên tay, rồi nhìn ra biển cả bao la, nơi những con sóng vẫn đều đặn vỗ bờ, như chưa hề có biến cố nào sắp xảy ra. Anh nhớ lại hình ảnh cô em gái nhỏ bị nuốt chửng, hình ảnh cha mẹ bị sóng thần cuốn đi. Nỗi đau đó, sự bất lực đó, biến thành một ngọn lửa cháy rực trong lồng ngực anh.
+
+"Không lùi bước. Tuyệt đối không lùi bước."
+
+Đào Dũng đưa mảnh thịt lên miệng. Cảm giác ghê tởm dâng trào, nhưng anh nuốt xuống không chút do dự. Mảnh thịt trôi xuống cổ họng, cảm giác như nuốt phải một cục đá lạnh buốt, rồi sau đó là một luồng nhiệt nóng rực lan tỏa khắp cơ thể.
+
+Cảm giác đầu tiên là một cơn đau nhói như xé toạc màng nhĩ, rồi lan xuống toàn thân. Anh cảm thấy như có hàng ngàn mũi kim đang đâm vào từng tế bào, từng mạch máu. Da thịt anh nóng ran, rồi lạnh buốt, rồi lại nóng ran. Cơ thể anh co giật không kiểm soát. Anh ngã quỵ xuống cát, hai tay ôm chặt lấy đầu.
+
+"Aaaaaaa!" Anh gào lên, một tiếng gào xé lòng, tiếng gào của một kẻ đang chiến đấu với tử thần.
+
+Cảnh vật xung quanh anh trở nên mờ ảo. Những hình ảnh kỳ lạ lóe lên trong đầu: một đại dương sâu thẳm, đen kịt, nơi những sinh vật khổng lồ với đôi mắt phát sáng bơi lội trong im lặng. Một con bạch tuộc khổng lồ, xúc tu dài hàng trăm mét, vẫy vùng trong dòng nước, phát ra những luồng điện xanh lét. Một con cá voi với hàm răng sắc nhọn như dao cạo, đôi mắt đỏ rực như máu. Những hình ảnh đó xen kẽ với ký ức về kiếp trước của anh: những con thuyền cháy rụi, những xác chết trôi dạt, tiếng kêu than tuyệt vọng.
+
+Đào Dũng cảm thấy máu mình như đang sôi lên, cơ bắp co thắt dữ dội. Anh nôn khan, nhưng không có gì để nôn ra. Làn da anh chuyển sang màu tái xanh, rồi lại đỏ bừng. Anh cảm thấy như có một thứ gì đó đang lớn dần lên bên trong cơ thể mình, một sức mạnh nguyên thủy, hoang dại, đang cố gắng phá vỡ mọi giới hạn.
+
+Virus! Nó đang tấn công anh, đang cố gắng đồng hóa anh. Đây là thử thách cam go nhất. Hoặc anh sẽ chết, hoặc anh sẽ vượt qua và trở thành một F0.
+
+Thời gian như ngừng lại. Anh không biết mình đã nằm đó bao lâu. Có thể là vài phút, có thể là vài giờ. Cơn đau dần dần dịu đi, nhưng không biến mất hoàn toàn. Nó chuyển thành một cảm giác âm ỉ, như thể cơ thể anh đang được tái tạo, từng tế bào đang được sắp xếp lại.
+
+Khi cơn đau lắng xuống, Đào Dũng cố gắng mở mắt. Khung cảnh xung quanh vẫn còn lảo đảo, nhưng đã rõ ràng hơn. Anh cảm thấy cơ thể mình nhẹ hơn, nhưng đồng thời cũng mạnh mẽ hơn. Một cảm giác kỳ lạ dâng trào, như thể anh có thể cảm nhận được từng hạt cát dưới lòng bàn tay, từng làn gió lướt qua da thịt.
+
+Anh từ từ đứng dậy. Chân anh vẫn còn hơi run, nhưng đã vững vàng hơn rất nhiều. Anh đưa tay lên nhìn. Làn da vẫn là da thịt của anh, không có vảy cá hay xúc tu mọc ra. Nhưng anh cảm thấy một sự khác biệt rõ rệt. Các múi cơ dường như săn chắc hơn, khỏe hơn.
+
+Và rồi, một cảm giác lạ lùng dâng lên trong tâm trí anh. Anh có thể cảm nhận được sự rung động của nước biển, không chỉ là âm thanh mà là một sự rung động sâu sắc, như thể anh là một phần của đại dương. Anh cảm thấy một luồng năng lượng lạnh lẽo, mạnh mẽ đang cuộn trào trong cơ thể mình, đặc biệt là ở cánh tay và bàn tay.
+
+Đào Dũng nhìn chằm chằm vào Globster khổng lồ đang nằm im lìm trên cát. Anh giơ bàn tay phải lên. Tập trung toàn bộ tâm trí vào luồng năng lượng đó.
+
+Bỗng nhiên, một tia sáng xanh mờ ảo lóe lên từ lòng bàn tay anh, rồi vụt tắt.
+
+Anh ngạc nhiên nhìn chằm chằm vào tay mình. "Cái gì thế này…?"
+
+Anh thử lại. Lần này, anh tập trung mạnh hơn. Luồng năng lượng trong người anh cuộn xoáy, hội tụ ở lòng bàn tay. Và rồi, một tia sáng xanh mạnh mẽ hơn bắn ra, xuyên qua không khí, để lại một vệt sáng mờ ảo trước khi tan biến.
+
+Sức mạnh! Anh đã có sức mạnh!
+
+"Năng lực… phóng điện?" Đào Dũng thì thầm. Anh nhớ lại một trong những hình ảnh thoáng qua trong cơn đau: con bạch tuộc khổng lồ phát ra luồng điện. Có lẽ, con Kraken này cũng có khả năng đó, hoặc virus từ nó đã ban cho anh một năng lực tương tự.
+
+Anh nắm chặt tay. Một cảm giác thỏa mãn tột độ dâng trào. Anh đã thành công. Anh đã trở thành F0. Không phải một F1 yếu ớt, mà là một F0 thực sự, một người tiến hóa.
+
+Nhưng sự hân hoan nhanh chóng tan biến, thay vào đó là sự tỉnh táo lạnh lùng. Đây mới chỉ là khởi đầu. Virus đã biến đổi anh, nhưng nó cũng là một con dao hai lưỡi. Anh không biết liệu nó có gây ra tác dụng phụ nào khác hay không, liệu nó có ảnh hưởng đến tâm trí anh không. Hơn nữa, năng lực này mới chỉ là sơ khai. Anh cần phải học cách kiểm soát nó, phát triển nó.
+
+"Đừng vội mừng, Dũng," anh tự nhủ. "Chưa có gì là chắc chắn cả. 'Hữu xạ tự nhiên hương', nhưng cũng 'lắm tài thì nhiều tật'." Anh phải cẩn trọng hơn bao giờ hết.
+
+Anh nhìn đồng hồ trên điện thoại. Đã gần chiều tối. Hơn năm tiếng đồng hồ đã trôi qua kể từ khi anh nuốt mảnh thịt Globster. Anh đã trải qua một cuộc lột xác, nhưng thế giới bên ngoài vẫn bình yên như chưa từng có chuyện gì.
+
+Đào Dũng quay trở lại căn chòi. Anh cần nghỉ ngơi, cần nạp lại năng lượng. Nhưng quan trọng hơn, anh cần suy nghĩ về những bước đi tiếp theo. Anh đã có năng lực. Anh đã có một lợi thế lớn. Nhưng mười ngày nữa, tận thế sẽ thực sự bùng nổ. Và biển cả sẽ không chỉ có những con cá điện khổng lồ, mà còn có vô số những quái vật khác, những bá chủ biển sâu thực sự, và cả những người tiến hóa khác.
+
+Anh phải chuẩn bị. Anh phải mạnh mẽ hơn nữa. Globster này đã cho anh năng lực, nhưng liệu nó có còn bí mật nào khác không? Và còn Hải Châu? Liệu anh có thể tìm thấy chúng để cường hóa bản thân hơn nữa, hoặc để giúp đỡ những người khác nếu anh gặp lại họ?
+
+Đào Dũng nằm xuống tấm bạt, cố gắng nhắm mắt lại. Nhưng tâm trí anh vẫn quay cuồng. Anh đã đặt một chân vào cánh cửa của thế giới mới, một thế giới đầy nguy hiểm và cơ hội. Và anh biết, đây mới chỉ là những bước đi đầu tiên trên con đường chông gai mà anh đã chọn. "Thuyền to sóng lớn." Anh đã chọn con đường mạo hiểm nhất, và giờ đây, anh phải đối mặt với những thử thách lớn nhất.
+`},
+      {title: "Chương 3: Quyền Năng Thức Tỉnh", content: `Bãi biển vắng lặng đến đáng sợ dưới ánh trăng mờ nhạt. Khối Globster khổng lồ vẫn nằm đó, một ngọn núi thịt đen sì, bốc lên mùi tanh tưởi đến rợn người. Đào Dũng ngồi đối diện nó, lưng dựa vào tảng đá lạnh lẽo, tay nắm chặt con dao găm. Anh đã dành cả buổi tối để suy nghĩ, để chuẩn bị tâm lý cho quyết định trọng đại này.
+
+Trong kiếp trước, anh đã chứng kiến vô số người liều lĩnh hấp thụ virus F0 một cách mù quáng. Kẻ thì chết ngay lập tức, cơ thể biến dạng đến mức không còn nhận ra. Kẻ thì trở thành những F1 yếu ớt, chỉ có một năng lực đơn lẻ, không đủ để đối phó với thế giới khắc nghiệt. Và hiếm hoi lắm mới có người trở thành F0 thực sự, nhưng phải trải qua bao nhiêu đau đớn, bao nhiêu lần thử thách sinh tử.
+
+Giờ đây, anh đang đứng trước cơ hội độc nhất vô nhị: một nguồn F0 nguyên thủy, tinh khiết từ một Bá Chủ Biển Sâu – thứ mà không ai trong kiếp trước có thể tiếp cận sớm đến vậy. Anh đã thử chạm vào nó, đã cảm nhận được luồng năng lượng ban đầu. Nhưng như người xưa đã nói, "ăn xôi chùa, ngậm cục đá", anh biết rằng chỉ chạm nhẹ không đủ. Anh cần phải hấp thụ nó, toàn bộ.
+
+"Đã quyết thì đừng hối hận," anh tự nhủ, giọng khản đặc. "Sống là phải chiến đấu, chứ không phải chờ chết."
+
+Đào Dũng hít một hơi thật sâu, dồn hết can đảm. Anh dùng con dao găm, cắt một miếng thịt từ khối Globster. Lần này, anh cắt một miếng lớn hơn, bằng nắm tay của một người trưởng thành. Miếng thịt màu xanh đen, nhão nhoẹt, có những đường gân màu tím đậm chạy chằng chịt, và một thứ chất dịch sền sệt, nhớp nháp rỉ ra. Mùi hôi thối xộc thẳng vào mũi, khiến anh phải nín thở.
+
+Anh đưa miếng thịt lên miệng. Cảm giác ghê tởm dâng trào, nhưng anh không cho phép mình chùn bước. "Muốn đội trời đạp đất, phải nuốt được cả gai." Anh nhắm mắt lại, dứt khoát nuốt trọn miếng thịt.
+
+Cảm giác đầu tiên là một vị tanh nồng, hôi thối, như thể anh vừa nuốt phải một con cá chết đã phân hủy hàng tháng trời. Rồi sau đó, một cơn đau buốt kinh hoàng ập đến. Nó không chỉ là đau thể xác, mà còn là đau từ sâu thẳm linh hồn. Anh cảm thấy như có hàng ngàn con dao đang xé toạc từng thớ thịt, từng mạch máu, từng tế bào trong cơ thể anh.
+
+"Aaaaaaa!" Anh gào lên, tiếng gào xé nát màn đêm tĩnh mịch.
+
+Đào Dũng ngã vật xuống cát, co quắp lại. Cơ thể anh co giật dữ dội, không kiểm soát được. Làn da anh chuyển sang màu đỏ bầm, rồi lại tái xanh, gân xanh nổi đầy trên trán và cổ. Máu trong huyết quản anh như sôi lên, nóng hầm hập, rồi lại lạnh buốt thấu xương. Anh cảm thấy như có một sinh vật sống đang bò lổm ngổm bên trong mình, cố gắng phá vỡ mọi giới hạn, mọi rào cản.
+
+Những hình ảnh kỳ lạ, hỗn loạn lướt qua tâm trí anh như một cuốn phim quay chậm: một đại dương đen kịt, lạnh lẽo, nơi những con quái vật khổng lồ với xúc tu dài hàng trăm mét đang săn mồi trong im lặng. Một con Kraken với đôi mắt phát sáng rực rỡ, những xúc tu uyển chuyển, có thể tạo ra những luồng xoáy nước chết người. Anh cảm thấy như mình đang hòa mình vào đại dương, cảm nhận được áp lực của hàng ngàn mét nước, sự rung động của đáy biển sâu.
+
+Đây là quá trình đồng hóa virus F0. Virus đang biến đổi anh, tái tạo anh. Anh không biết mình đã nằm đó bao lâu. Có thể là vài phút, có thể là vài giờ. Cơn đau dữ dội dần dần chuyển thành một cảm giác tê dại, rồi một sự bùng nổ năng lượng. Anh cảm thấy một thứ gì đó đang lớn dần lên bên trong cơ thể, một sức mạnh nguyên thủy, hoang dại, liên kết chặt chẽ với đại dương.
+
+Khi cơn đau lắng xuống hoàn toàn, Đào Dũng cố gắng mở mắt. Khung cảnh xung quanh vẫn còn lảo đảo, nhưng đã rõ ràng hơn. Anh cảm thấy cơ thể mình nhẹ bẫng, nhưng đồng thời lại tràn đầy sức mạnh. Một cảm giác kỳ lạ dâng trào, như thể anh có thể cảm nhận được từng hạt cát dưới lòng bàn tay, từng làn gió lướt qua da thịt.
+
+Anh từ từ đứng dậy. Chân anh vẫn còn hơi run, nhưng đã vững vàng hơn rất nhiều. Anh đưa tay lên nhìn. Làn da anh vẫn là da thịt của anh, không có vảy cá hay xúc tu mọc ra. Nhưng anh cảm thấy một sự khác biệt rõ rệt. Các múi cơ dường như săn chắc hơn, khỏe hơn. Hơn nữa, anh cảm thấy một luồng năng lượng lỏng, linh hoạt đang cuộn xoáy trong cơ thể mình, đặc biệt là ở cánh tay.
+
+Anh đưa bàn tay phải ra. Tập trung toàn bộ tâm trí vào luồng năng lượng đó.
+
+Bỗng nhiên, một dòng nước nhỏ, trong suốt, chợt bắn ra từ lòng bàn tay anh, xoay tròn theo ý muốn rồi tan biến vào cát. Đào Dũng há hốc mồm. Đây là năng lực điều khiển nước!
+
+Anh thử lại. Lần này, anh tập trung mạnh hơn. Dòng nước chảy ra nhiều hơn, nó xoay tròn trong không khí, rồi biến thành một hình dạng thuôn dài, mềm mại, như một chiếc roi nước. Anh có thể điều khiển nó uốn lượn, kéo dài, hoặc thu gọn lại. Nhưng có một điều kỳ lạ: dòng nước luôn có xu hướng biến thành hình dạng giống hoặc gần giống xúc tu. Khi anh cố gắng tạo ra một khối nước tròn, nó sẽ nhanh chóng dẹt ra và kéo dài thành một "xúc tu" nhỏ.
+
+"Xúc tu nước?" Đào Dũng thì thầm, đôi mắt ánh lên vẻ kinh ngạc. Đây chính là quyền năng của Kraken, Bá Chủ Biển Sâu! Anh đã hấp thụ được một phần bản chất của loài bạch tuộc khổng lồ đó.
+
+Anh cố gắng tạo ra hai, rồi ba "xúc tu nước" cùng lúc. Chúng xoay tròn quanh anh, uyển chuyển và linh hoạt. Anh cảm thấy một sự liên kết kỳ lạ với chúng, như thể chúng là một phần mở rộng của cơ thể anh.
+
+Một ý nghĩ đột nhiên lóe lên trong đầu anh. Nếu đây là xúc tu, vậy chúng có khả năng gì? Anh nhớ lại những con bạch tuộc, chúng có thể thay đổi màu sắc, hình dạng để ngụy trang.
+
+Anh tập trung vào một trong những xúc tu nước. Anh cố gắng biến nó thành một hình dạng khác. Dòng nước lập tức dao động, rồi bất ngờ, nó chuyển sang màu nâu đất, rồi biến thành hình dạng một cành cây khô. Anh giật mình. "Xúc tu biến hình!" Đây chính là năng lực đầu tiên của những xúc tu nước này!
+
+Anh thử biến nó thành một sợi dây thừng, một con rắn nhỏ, một chiếc móc câu. Mọi thứ đều thành công. Những xúc tu nước của anh có thể biến thành mọi hình dạng mà anh mong muốn, miễn là chúng duy trì được cấu trúc cơ bản của một xúc tu. Hơn nữa, chúng còn có thể tiết ra một loại "dịch nhầy" màu xanh lam nhạt, giúp tăng cường độ dính và khả năng bám víu khi anh biến chúng thành những vật thể có tính năng bám dính.
+
+Đào Dũng cảm thấy một sự phấn khích tột độ. Anh không chỉ có năng lực điều khiển nước, mà còn có khả năng tạo ra những xúc tu nước đa năng! Anh nhớ lại những thông tin từ kiếp trước: những F0 có năng lực hệ xúc tu thường có tối đa tám xúc tu, mỗi xúc tu có một năng lực đặc biệt riêng. Anh mới chỉ có một "xúc tu biến hình", nhưng điều đó có nghĩa là anh còn bảy xúc tu nữa để khám phá!
+
+"Sức mạnh này… thật không thể tin được." Anh tự nhủ. Nó vượt xa những gì anh mong đợi. Với năng lực này, anh có thể đối phó với tận thế, không còn là kẻ bị động chờ chết.
+
+Anh dành ba ngày tiếp theo để luyện tập. Anh học cách điều khiển các xúc tu nước một cách chính xác hơn, thành thạo hơn. Anh thử biến chúng thành những vật thể phức tạp, dùng chúng để nâng vật nặng, để di chuyển. Anh nhận ra rằng, dù là nước, nhưng những xúc tu này lại cứng cáp và mạnh mẽ đến kinh ngạc, có thể dễ dàng đập vỡ đá, thậm chí là xuyên qua gỗ. Dịch nhầy mà chúng tiết ra cũng vô cùng hữu ích, giúp tăng cường ma sát và khả năng bám dính.
+
+Thời gian còn lại chỉ còn hai ngày. Bầu trời ngày càng u ám, mây đen kịt kéo đến, che phủ cả một vùng trời. Gió biển gầm gừ, dữ dội hơn, và những con sóng đã biến thành những ngọn núi nước khổng lồ, vỗ ầm ầm vào bờ. Tiếng sấm rền vang, báo hiệu một cơn thịnh nộ sắp đến.
+
+Vào đêm trước ngày tận thế, mưa bắt đầu đổ xuống. Không phải mưa rào, mà là một trận mưa như trút nước, không ngừng nghỉ. Nước biển dâng lên nhanh chóng, nuốt chửng bãi cát, rồi dần dần leo lên ghềnh đá. Đào Dũng đứng trong hang đá, nhìn ra ngoài, đôi mắt anh ánh lên vẻ kiên định. Anh biết, đây chính là nó. Đại hồng thủy.
+
+Sáng hôm sau, mặt trời không còn xuất hiện nữa. Cả thế giới chìm trong màn mưa trắng xóa và tiếng gió hú rít. Nước biển đã dâng lên đến tận miệng hang đá. Xa xa, những ngôi nhà trọ ven biển, những quán ăn nhỏ đã chìm nghỉm trong biển nước mênh mông. Tiếng kêu la hoảng loạn, tiếng đổ vỡ của nhà cửa, tiếng sóng thần gầm gừ vang vọng trong không trung.
+
+"Đến rồi!" Đào Dũng siết chặt nắm tay. Anh hít một hơi thật sâu. Đã đến lúc sử dụng sức mạnh của mình.
+
+Anh lao ra khỏi hang đá. Nước đã ngập đến đầu gối anh. Dòng chảy mạnh đến mức có thể cuốn trôi một người bình thường. Nhưng đối với Đào Dũng, anh cảm thấy như đang bơi trong chính ngôi nhà của mình. Năng lực điều khiển nước của anh dường như được cường hóa trong môi trường này.
+
+Anh nhìn thấy những mảnh vỡ của nhà cửa, những thân cây, và vô số đồ vật khác trôi nổi trên mặt nước. Anh nhớ lại kế hoạch của mình. Anh phải tạo ra một chiếc bè, một nơi trú ẩn cho chính mình và những người sống sót khác.
+
+Đào Dũng tập trung năng lượng. Hai xúc tu nước màu xanh lam hiện ra từ lòng bàn tay anh, uốn lượn như những con rắn khổng lồ. Anh điều khiển chúng, dùng chúng để kéo những thân cây gỗ lớn, những tấm ván, những mảnh cửa sổ còn sót lại từ những ngôi nhà bị phá hủy.
+
+Với sức mạnh của những xúc tu nước, anh dễ dàng nâng những vật nặng, xếp chúng lại với nhau. Xúc tu biến hình của anh biến thành những sợi dây thừng nước, buộc chặt các mảnh gỗ lại. Dịch nhầy màu xanh lam tiết ra từ xúc tu giúp các mối nối trở nên bền chắc hơn, như thể chúng được dán lại bằng một loại keo siêu dính.
+
+Dưới sự điều khiển của Đào Dũng, một chiếc bè khổng lồ dần hình thành. Nó không phải là một chiếc bè đơn giản, mà là một cấu trúc vững chắc, có thể nổi trên mặt nước và chịu được những con sóng lớn. Anh dùng những tấm ván làm sàn, những thân cây lớn làm khung sườn. Chiếc bè ngày càng lớn, đủ chỗ cho hàng chục người.
+
+Trong lúc đang xây bè, anh nghe thấy tiếng kêu cứu yếu ớt từ xa. "Cứu với! Có ai không?"
+
+Đào Dũng ngẩng đầu. Xa xa, trên một mái nhà đang chìm dần, có vài bóng người đang vẫy tay tuyệt vọng. Nước đã ngập đến tận ngực họ.
+
+"Có người!" Đào Dũng không chần chừ. Anh dùng một xúc tu nước biến thành một chiếc thang, vươn dài ra phía những người sống sót. Chiếc xúc tu nước khác biến thành một chiếc thuyền nhỏ, anh dùng nó để bơi về phía họ.
+
+Khi đến gần, anh nhìn thấy một nhóm khoảng năm người, bao gồm một người phụ nữ trẻ, một người đàn ông lớn tuổi, và ba đứa trẻ. Họ đang bám víu vào nhau, đôi mắt đầy vẻ hoảng loạn và tuyệt vọng. Người phụ nữ trẻ có mái tóc dài, ướt sũng, gương mặt thanh tú nhưng xanh xao vì sợ hãi. Đôi mắt cô ấy to tròn, ánh lên một tia hy vọng khi nhìn thấy Đào Dũng.
+
+"Cứu chúng tôi với!" Người phụ nữ khẽ kêu lên, giọng run rẩy.
+
+Đào Dũng gật đầu. "Mau lên bè! Nước đang dâng rất nhanh!"
+
+Anh dùng xúc tu nước để kéo chiếc bè tạm về phía họ. Người đàn ông lớn tuổi giúp ba đứa trẻ leo lên trước. Rồi đến lượt người phụ nữ trẻ. Khi cô ấy leo lên bè, ánh mắt cô ấy chạm vào Đào Dũng. Có một sự kinh ngạc trong đôi mắt cô ấy khi nhìn thấy những xúc tu nước của anh, nhưng cô ấy quá sợ hãi để hỏi.
+
+"Tôi là Minh Nguyệt," cô ấy khẽ nói, rồi ngất lịm đi vì kiệt sức.
+
+Đào Dũng đỡ lấy Minh Nguyệt, đặt cô ấy nằm xuống bè. Anh nhìn những người sống sót khác. Họ đều ướt sũng, run rẩy vì lạnh và sợ hãi.
+
+"Mọi người bám chắc vào!" Anh nói lớn. "Chúng ta phải rời khỏi đây!"
+
+Anh dùng năng lực của mình, điều khiển chiếc bè khổng lồ di chuyển về phía vùng nước sâu hơn, tránh xa những tàn tích đang chìm dần của thành phố. Những xúc tu nước của anh hoạt động không ngừng, đẩy bè đi, thu gom thêm những mảnh gỗ nổi để gia cố.
+
+Tận thế đã thực sự bắt đầu. Nhưng giờ đây, Đào Dũng không còn đơn độc. Anh có sức mạnh, và anh có những người khác để bảo vệ. Con đường phía trước còn rất dài, đầy rẫy nguy hiểm và những bí ẩn của biển cả. Nhưng anh tin rằng, miễn là còn hơi thở, anh sẽ không bao giờ bỏ cuộc. "Lửa thử vàng, gian nan thử sức." Anh đã sẵn sàng cho mọi thử thách.
+`},
+      {title: "Chương 4: Biển Đen Và Gánh Nặng", content: `Tiếng gió rít gào, tiếng sóng cuồng nộ gầm thét như muốn nuốt chửng mọi thứ. Chiếc bè khổng lồ, được Đào Dũng gia cố bằng những thân gỗ và mảnh ván, chòng chành giữa biển nước mênh mông. Những xúc tu nước của anh không ngừng hoạt động, đẩy bè đi, chống chọi với những con sóng bạc đầu. Dù đã hấp thụ sức mạnh của Bá Chủ Biển Sâu, việc điều khiển một khối lượng nước lớn như vậy trong điều kiện khắc nghiệt vẫn tiêu hao năng lượng khủng khiếp. Mồ hôi vã ra trên trán Đào Dũng, thấm đẫm mái tóc và chảy xuống cằm.
+
+Minh Nguyệt, sau khi tỉnh lại, đã giúp Đào Dũng ổn định những người sống sót. Cô ấy là một cô gái mạnh mẽ, dù vừa trải qua nỗi sợ hãi tột cùng, nhưng vẫn giữ được sự bình tĩnh đáng ngạc nhiên. Cô ấy chăm sóc ba đứa trẻ, trấn an người đàn ông lớn tuổi đang run rẩy vì sốc. Đào Dũng nhìn cô, thầm cảm kích. "Trong họa có phúc, trong phúc có họa." Giữa cơn cuồng nộ của thiên tai, sự xuất hiện của Minh Nguyệt như một tia sáng nhỏ.
+
+Chiếc bè lênh đênh trên biển nước đen ngòm, trôi dạt vô định trong màn mưa như trút. Đào Dũng không biết mình đang đi đâu, chỉ cố gắng giữ cho chiếc bè không bị lật úp và tránh xa những dòng xoáy nguy hiểm. Anh biết rằng, với sức mạnh của mình, anh là trụ cột duy nhất của nhóm người này.
+
+Khoảng vài giờ sau, khi trận mưa bớt đi phần nào, và ánh sáng lờ mờ của buổi chiều tà xuyên qua những tầng mây dày đặc, một hình ảnh mờ ảo hiện ra phía xa. Đó là một tòa nhà cao tầng, sừng sững giữa biển nước, chỉ còn phần mái và vài tầng trên cùng là lộ ra. Chung quanh nó, vô số những chấm đen nhỏ đang bám víu vào các ô cửa sổ, những lan can, hay bất cứ thứ gì có thể bám được.
+
+"Kia là… Học viện Hải dương!" Minh Nguyệt khẽ reo lên, giọng cô ấy run rẩy vì xúc động. "Trường của em!"
+
+Đào Dũng nheo mắt nhìn. Đúng là Học viện Hải dương. Anh nhớ lại từ kiếp trước, đây là một trong những cơ sở giáo dục lớn ven biển, chuyên đào tạo về các ngành khoa học biển. Điều đó cũng có nghĩa là, ở đây có thể có rất nhiều người sống sót.
+
+Anh lập tức điều khiển những xúc tu nước, đẩy chiếc bè về phía tòa nhà. Càng đến gần, cảnh tượng càng trở nên rõ ràng và bi thương. Hàng trăm sinh viên, giáo viên, và cả nhân viên của trường đang chen chúc trên những tầng cao, trên mái nhà, trên những mảnh vỡ trôi nổi. Họ kêu la, vẫy tay tuyệt vọng, ánh mắt đầy rẫy nỗi kinh hoàng. Nhiều người đã kiệt sức, ngất lịm đi. Một số khác thì không may mắn như vậy, thân thể họ trôi nổi vô định giữa những mảnh vỡ, bị sóng đánh tan tác.
+
+"Trời ơi…" Người đàn ông lớn tuổi thốt lên, đôi mắt đỏ hoe.
+
+"Có người đến cứu chúng ta rồi!" Một tiếng reo mừng yếu ớt vang lên từ tòa nhà.
+
+Đào Dũng không chần chừ. Anh đưa những xúc tu nước biến hình thành những chiếc thang, những sợi dây dài, vươn tới tòa nhà. "Mọi người, mau lên bè! Nhanh lên!" Anh gào lớn, giọng anh khản đặc.
+
+Những người sống sót chen chúc nhau, cố gắng leo lên bè. Đào Dũng phải dùng năng lực của mình để giữ cho chiếc bè ổn định, đồng thời dùng xúc tu để kéo từng người một lên. Có những cô gái trẻ sợ hãi đến mức không thể tự mình leo lên được, anh phải dùng xúc tu nhẹ nhàng nâng họ lên. Có những người đàn ông khỏe mạnh hơn, nhưng lại hoảng loạn đến mức suýt chút nữa làm lật bè. Anh phải dùng lời lẽ cứng rắn, thậm chí là dùng xúc tu để giữ chặt họ lại, ép họ phải giữ trật tự.
+
+Quá trình cứu người diễn ra trong hỗn loạn và căng thẳng tột độ. Hàng trăm người được kéo lên chiếc bè. Mái tóc ướt sũng, quần áo rách bươm, gương mặt xanh xao, run rẩy vì lạnh và sợ hãi. Họ chen chúc nhau, không còn chỗ trống. Chiếc bè khổng lồ mà Đào Dũng đã tạo ra giờ đây trở nên chật ních, gần như không còn một kẽ hở nào.
+
+Khi người cuối cùng được cứu lên, Đào Dũng nhìn lại tòa nhà Học viện Hải dương. Nó giờ đây giống như một ngọn hải đăng cô độc giữa biển nước, với rất ít bóng người còn sót lại. Anh biết mình không thể cứu hết tất cả. "Lực bất tòng tâm," anh thở dài.
+
+Nhưng vấn đề không chỉ dừng lại ở đó. Chiếc bè, với hàng trăm người và vô số đồ đạc gom góp được, trở nên quá nặng nề. Tốc độ di chuyển của nó giảm đi rõ rệt. Những xúc tu nước của Đào Dũng phải làm việc cật lực hơn gấp bội, nhưng chiếc bè vẫn chỉ nhích từng chút một giữa những con sóng lớn. Anh cảm thấy năng lượng trong cơ thể mình đang cạn kiệt nhanh chóng.
+
+Khi đêm xuống, không gian trên bè trở nên ngột ngạt hơn bao giờ hết. Hàng trăm con người chen chúc, không có chỗ để ngả lưng. Tiếng ho khan, tiếng khóc thút thít của trẻ con, tiếng thở dài của người lớn, và mùi ẩm mốc, mùi cơ thể, mùi hoảng loạn hòa quyện vào nhau, tạo thành một bầu không khí nặng nề, u ám.
+
+Các vấn đề bắt đầu nảy sinh.
+
+Thức ăn và nước uống: Lương thực và nước ngọt mang theo từ ban đầu chỉ đủ cho một mình Đào Dũng trong vài ngày. Giờ đây, với hàng trăm miệng ăn, nguồn dự trữ cạn kiệt nhanh chóng. Người ta bắt đầu nhìn nhau với ánh mắt lo lắng, rồi đến thèm khát. Đào Dũng phải ra lệnh phân phát khẩu phần ăn một cách cực kỳ hạn chế: mỗi người chỉ một ít lương khô và vài ngụm nước mỗi ngày. "Miếng ăn là miếng tồi tàn," anh thầm nghĩ. Sự thiếu thốn đang dần bộc lộ bản chất đen tối của con người.
+
+Không gian và vệ sinh: Không gian trên bè chật chội đến mức không thể xoay xở. Mọi người phải ngồi, hoặc đứng. Vấn đề vệ sinh trở thành một cơn ác mộng. Bệnh tật có thể bùng phát bất cứ lúc nào. Mùi hôi thối, ẩm ướt, và sự ngột ngạt khiến không khí càng thêm căng thẳng.
+
+Tâm lý và sự hoảng loạn: Sự tuyệt vọng lan truyền nhanh chóng hơn cả dịch bệnh. Tiếng kêu cứu của những người còn mắc kẹt, tiếng sóng gầm, và cảnh tượng những tòa nhà chìm dần khiến nhiều người không thể giữ được sự bình tĩnh. Đào Dũng phải liên tục dùng giọng nói của mình để trấn an họ, để duy trì trật tự.
+
+Anh nhìn Minh Nguyệt, cô ấy đang ôm chặt ba đứa trẻ, đôi mắt cô ấy cũng ẩn chứa sự mệt mỏi và lo lắng. "Sống giữa biển cả, thiếu thốn trăm bề, 'cha chung không ai khóc'." Đào Dũng nhận ra rằng, với kinh nghiệm sinh tồn cá nhân, anh có thể sống sót. Nhưng lãnh đạo một cộng đồng lớn giữa biển nước mênh mông là một thử thách hoàn toàn khác. Anh chưa bao giờ làm lãnh đạo, chưa bao giờ phải đối mặt với những vấn đề hậu cần và tâm lý phức tạp như vậy.
+
+Anh đã có sức mạnh, nhưng sức mạnh đó không thể tạo ra thức ăn, không thể mở rộng không gian sống, và không thể xoa dịu nỗi sợ hãi trong lòng hàng trăm con người. "Có tài mà không có đức, là người vô dụng. Có sức mà không có trí, là kẻ liều lĩnh." Anh có sức mạnh, nhưng thiếu đi kinh nghiệm và trí tuệ để quản lý một tập thể.
+
+Đào Dũng biết rằng, nếu cứ để tình trạng này tiếp diễn, chiếc bè sẽ biến thành một nấm mồ di động. Anh cần một giải pháp triệt để, không chỉ là tạm thời. Anh cần những người mạnh mẽ hơn, có khả năng tự vệ, có khả năng kiếm ăn. Anh cần biến họ thành những người tiến hóa.
+
+Ý nghĩ về F1 chợt lóe lên trong đầu anh. Virus F0 của anh có thể lây nhiễm cho người khác, biến họ thành F1 với một năng lực nào đó, tùy thuộc vào chủng virus. Nếu anh có thể tạo ra một đội quân F1, họ có thể giúp anh tìm kiếm thức ăn, bảo vệ bè, và đối phó với những sinh vật biến dị có thể xuất hiện.
+
+Nhưng cách lây nhiễm… Anh nhớ lại những thông tin từ kiếp trước, những nghiên cứu bí mật về cách virus F0 lây lan. Nó không lây qua máu, không lây qua không khí. Cách hiệu quả nhất, và cũng là cách duy nhất mà anh biết, là thông qua quan hệ tình dục. Virus F0 của Bá Chủ Biển Sâu đã biến đổi trong cơ thể anh, tạo ra một dạng "tế bào sinh sản" đặc biệt, có thể truyền năng lực.
+
+Đào Dũng cảm thấy một luồng lạnh chạy dọc sống lưng. Quan hệ tình dục? Điều đó có nghĩa là anh phải… Anh có thể ép buộc những người này không? Hay họ sẽ tự nguyện chấp nhận để sống sót? Đây là một vấn đề đạo đức cực kỳ nhạy cảm. "Tiến thoái lưỡng nan."
+
+Anh nhìn xuống bàn tay mình. Lớp da mỏng, trong suốt, gần như không thể nhìn thấy, vẫn còn đó. Anh nhớ lại những truyền thuyết về Kraken, về khả năng sinh sản độc đáo của loài bạch tuộc. Con đực có một xúc tu đặc biệt gọi là hectocotylus, dùng để chuyển gói tinh trùng cho con cái. Liệu năng lực của anh có liên quan đến điều đó?
+
+Đào Dũng tập trung vào cánh tay phải. Anh cố gắng tạo ra một xúc tu nước, nhưng lần này, anh tập trung vào một hình thái đặc biệt. Anh hình dung một xúc tu nhỏ hơn, uyển chuyển hơn, có khả năng tiết ra một lượng nhỏ dịch nhầy đặc biệt – dịch nhầy mang virus F0 của anh.
+
+Dòng nước trong lòng bàn tay anh bắt đầu co lại, rồi một xúc tu nhỏ, chỉ bằng ngón tay út, xuất hiện. Nó không dài như những xúc tu chiến đấu, mà ngắn hơn, linh hoạt hơn, và ở đầu nó, một giọt dịch nhầy trong suốt, xanh lam nhạt, đang lấp lánh.
+
+"Hectocotylus…?" Anh thì thầm. Đây chính là nó! Một xúc tu sinh sản, một phương tiện để truyền virus một cách có kiểm soát. Nó không cần phải là một hành động tình dục truyền thống, mà là một sự chuyển giao sinh học, một cách để "gieo mầm" sức mạnh.
+
+Nhưng ai sẽ là người đầu tiên? Anh không thể tùy tiện chọn một người. Anh cần một người đủ tin tưởng, đủ mạnh mẽ để chấp nhận rủi ro, và đủ bản lĩnh để đối mặt với những biến đổi.
+
+Anh liếc nhìn Minh Nguyệt. Cô ấy đang ngủ gục bên cạnh ba đứa trẻ, vẻ mặt mệt mỏi nhưng vẫn toát lên sự kiên cường. Cô ấy là người đầu tiên anh cứu, là người đã giúp anh ổn định tình hình. Cô ấy có sự bình tĩnh và trí tuệ.
+
+"Không, chưa phải lúc này." Đào Dũng lắc đầu. Anh không thể tự mình đưa ra quyết định đó ngay lập tức. Anh cần phải giải thích cho họ, phải có sự đồng thuận. Việc này không chỉ liên quan đến sức mạnh, mà còn liên quan đến sinh mạng, đến đạo đức.
+
+Anh nhìn ra biển cả đen ngòm. Tiếng sóng vỗ vẫn vang lên đều đều, như một lời nhắc nhở về sự tàn khốc của tận thế. Nguồn cung cấp ngày càng cạn kiệt, không gian càng lúc càng chật. "Cái khó ló cái khôn," nhưng cái khó này, nó đang đè nặng lên vai anh.
+
+Anh biết, anh phải nói chuyện với họ, phải đưa ra sự lựa chọn. Hoặc là chấp nhận rủi ro để trở nên mạnh mẽ, để có hy vọng sống sót, hoặc là chờ đợi cái chết từ từ nuốt chửng tất cả.
+
+"Mạnh vì gạo, bạo vì tiền," nhưng giờ đây, gạo và tiền không còn ý nghĩa. Sức mạnh mới là thứ duy nhất có thể bảo vệ họ. Và anh, Đào Dũng, là người duy nhất nắm giữ chìa khóa đó.
+
+Nghĩ đến đó, Đào Dũng đưa mắt nhìn về phía chân trời, nơi bóng tối vẫn bao trùm. Cuộc sống mới của anh, với tư cách là một F0, một người lãnh đạo bất đắc dĩ, vừa mới bắt đầu. Gánh nặng trên vai anh không chỉ là sinh mạng của chính mình, mà còn là sinh mạng của hàng trăm con người đang đặt hy vọng vào anh. "Ăn mặn nói ngay, ăn chay nói dối", anh sẽ phải thật lòng với họ về con đường sống còn duy nhất này.`},
+    ];
+    // Tự động sinh danh sách chương
+    const chapterList = document.getElementById('chapter-list');
+    chapters.forEach((chap, idx) => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item list-group-item-action';
+      li.textContent = chap.title;
+      li.style.cursor = 'pointer';
+      li.onclick = () => showChapter(idx);
+      chapterList.appendChild(li);
+    });
+    // Hiển thị nội dung chương
+    function showChapter(idx) {
+      const contentDiv = document.getElementById('chapter-content');
+      contentDiv.innerHTML = `<h5>${chapters[idx].title}</h5><p>${chapters[idx].content.replace(/\n/g, '<br>')}</p>`;
+    }
+    // Hiển thị chương đầu tiên mặc định
+    if (chapters.length > 0) showChapter(0);
+  </script>
 </body>
 </html> 
